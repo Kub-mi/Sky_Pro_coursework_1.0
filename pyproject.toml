@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "sky-pro-coursework-1-0"
+version = "0.1.0"
+description = ""
+authors = ["Михаил"]
+readme = "README.md"
+packages = [{include = "sky_pro_coursework_1"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
