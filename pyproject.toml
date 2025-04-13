@@ -8,6 +8,10 @@ packages = [{include = "sky_pro_coursework_1"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+flask = "^3.1.0"
+pandas = "^2.2.3"
+requests = "^2.32.3"
+openpyxl = "^3.1.5"
 
 
 [build-system]
