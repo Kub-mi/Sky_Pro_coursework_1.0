@@ -1,3 +1,4 @@
+import json
 from datetime import datetime
 from time import strptime
 
@@ -5,14 +6,14 @@ import pandas as pd
 
 PATH_TO_EXCEL = "../data/operations.xlsx"
 
-def get_greeting(time):
+def get_greeting():
     """Возвращает приветствие в зависимости от часа входящего времени."""
-    hour = time.hour
-    if 5 <= hour < 12:
+    user_time_hour = datetime.now().hour
+    if 5 <= user_time_hour < 12:
         return "Доброе утро"
-    elif 12 <= hour < 18:
+    elif 12 <= user_time_hour < 18:
         return "Добрый день"
-    elif 18 <= hour < 23:
+    elif 18 <= user_time_hour < 23:
         return "Добрый вечер"
     else:
         return "Доброй ночи"
@@ -24,7 +25,6 @@ def get_period(file_path: str, date_start: str, date_end: str):
     """
     df = pd.read_excel(file_path, sheet_name="Отчет по операциям")
     df['Дата операции'] = pd.to_datetime(df['Дата операции'], dayfirst = True)
-    print(date_start, ' || ', date_end)
 
     filtered_df = df[(df['Дата операции'] >= date_start) & (df['Дата операции'] <= date_end)]
     sorted_df = filtered_df.sort_values(by = 'Дата операции')
@@ -39,3 +39,13 @@ def get_correct_dates(date_time: str):
     start_date = end_date.replace(day=1)
 
     return start_date, end_date
+
+
+
+
+
+def load_transactions(filepath=PATH_TO_EXCEL):
+    """Загружает транзакции из Excel-файла и нормализует имена столбцов."""
+    df = pd.read_excel(filepath, parse_dates=['Дата операции'])
+    df.columns = [col.strip() for col in df.columns]
+    return df
