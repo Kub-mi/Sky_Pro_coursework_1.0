@@ -1,0 +1,7 @@
+venv/
+.idea/
+__pycache__/
+*.lock
+*.toml
+*.flake8
+.env
