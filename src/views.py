@@ -1,25 +1,30 @@
 import json
 import logging
 import os
-import requests
 from collections import defaultdict
+
+import requests
 from dotenv import load_dotenv
 
-from src.utils import get_correct_dates, PATH_TO_EXCEL, get_greeting, load_transactions
-from src.utils import get_period
+from src.utils import PATH_TO_EXCEL, get_correct_dates, get_greeting, get_period
 
 logger = logging.getLogger("views")
 logger.setLevel(logging.INFO)
 file_handler = logging.FileHandler("logs/views.log")
-file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+file_formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
+)
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
-def load_user_settings(filepath='../user_settings.json'):
-    with open(filepath, 'r', encoding='utf-8') as f:
+
+def load_user_settings(filepath="../user_settings.json"):
+    with open(filepath, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
 load_dotenv()
+
 
 def get_stock_price(symbols):
     logger.info("запуск функции get_stock_price")
@@ -31,19 +36,15 @@ def get_stock_price(symbols):
 
     for symbol in symbols:
         url = "http://api.marketstack.com/v2/eod"
-        params = {
-            'access_key': api_key,
-            'symbols': symbol,
-            'limit': 1
-        }
+        params = {"access_key": api_key, "symbols": symbol, "limit": 1}
         try:
             response = requests.get(url, params=params)
             response.raise_for_status()
             data = response.json()
             logger.info("получение данных по апи ключу")
 
-            if data.get('data'):
-                latest = data['data'][0]
+            if data.get("data"):
+                latest = data["data"][0]
                 logger.info("получаем data")
 
                 results[symbol] = round(latest.get("close", 0.0), 2)
@@ -67,7 +68,6 @@ def get_currency_rates(currencies, base="RUB"):
     if not api_key:
         logger.info("API_KEY_CURRENCY не задан в переменных окружения")
         raise ValueError("API_KEY_CURRENCY не задан в переменных окружения")
-
 
     symbols = ",".join(currencies)
     logger.info("Разделяем валюты запятой для запроса сразу двух валют")
@@ -96,10 +96,9 @@ def get_currency_rates(currencies, base="RUB"):
             rate = quotes.get(key)
             logger.info(f"Обрабатываем {key}: {rate}")
 
-            result.append({
-                "currency": currency,
-                "rate": round(rate, 4) if rate else None
-            })
+            result.append(
+                {"currency": currency, "rate": round(rate, 4) if rate else None}
+            )
 
         return result
 
@@ -119,42 +118,47 @@ def main_info(date_time):
     user_settings = load_user_settings()
 
     # Словарь для подсчёта сумм и кешбэка по каждой карте
-    cards_summary = defaultdict(lambda: {'total': 0.0, 'cashback': 0.0})
+    cards_summary = defaultdict(lambda: {"total": 0.0, "cashback": 0.0})
 
     for _, row in sorted_df.iterrows():
-        last_digits = str(row['Номер карты'])[-4:]
+        last_digits = str(row["Номер карты"])[-4:]
         try:
-            amount = abs(float(str(row['Сумма платежа']).replace(",", ".")))
-            cashback = float(str(row['Бонусы (включая кэшбэк)']).replace(",", ".") or 0.0)
+            amount = abs(float(str(row["Сумма платежа"]).replace(",", ".")))
+            cashback = float(
+                str(row["Бонусы (включая кэшбэк)"]).replace(",", ".") or 0.0
+            )
         except ValueError:
             continue
 
-        cards_summary[last_digits]['total'] += amount
-        cards_summary[last_digits]['cashback'] += cashback
+        cards_summary[last_digits]["total"] += amount
+        cards_summary[last_digits]["cashback"] += cashback
 
     # Формируем JSON по картам
     cards_json = [
         {
             "last_digits": digits,
-            "total_spent": round(data['total'], 2),
-            "cashback": round(data['total'] * 0.01, 2)  # 1% кешбэк
+            "total_spent": round(data["total"], 2),
+            "cashback": round(data["total"] * 0.01, 2),  # 1% кешбэк
         }
         for digits, data in cards_summary.items()
     ]
 
     # Топ-5 транзакций
-    sorted_df['Сумма платежа числом'] = sorted_df['Сумма платежа'].astype(str).str.replace(",", ".").astype(
-        float).abs()
-    top_df = sorted_df.sort_values(by='Сумма платежа числом', ascending=False).head(5)
+    sorted_df["Сумма платежа числом"] = (
+        sorted_df["Сумма платежа"].astype(str).str.replace(",", ".").astype(float).abs()
+    )
+    top_df = sorted_df.sort_values(by="Сумма платежа числом", ascending=False).head(5)
 
     top_transactions = []
     for _, row in top_df.iterrows():
-        top_transactions.append({
-            "date": row['Дата операции'].strftime("%d.%m.%Y"),
-            "amount": round(float(str(row['Сумма платежа']).replace(",", ".")), 2),
-            "category": row['Категория'],
-            "description": row['Описание']
-        })
+        top_transactions.append(
+            {
+                "date": row["Дата операции"].strftime("%d.%m.%Y"),
+                "amount": round(float(str(row["Сумма платежа"]).replace(",", ".")), 2),
+                "category": row["Категория"],
+                "description": row["Описание"],
+            }
+        )
 
     # Курсы валют и акции
     currency_rates = get_currency_rates(user_settings.get("user_currencies", []))
@@ -168,5 +172,5 @@ def main_info(date_time):
         "cards": cards_json,
         "top_transactions": top_transactions,
         "currency_rates": currency_rates,
-        "stock_prices": stock_prices
+        "stock_prices": stock_prices,
     }
