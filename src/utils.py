@@ -5,6 +5,7 @@ import os
 from datetime import datetime
 
 import pandas as pd
+from pandas import DataFrame
 
 PATH_TO_EXCEL = "../data/operations.xlsx"
 
@@ -30,7 +31,7 @@ def get_greeting():
         return "Доброй ночи"
 
 
-def get_period(file_path: str, date_start: str, date_end: str):
+def get_period(file_path: str, date_start: str, date_end: str) -> DataFrame:
     """
     Функция получения периода
     """
@@ -40,7 +41,7 @@ def get_period(file_path: str, date_start: str, date_end: str):
     filtered_df = df[
         (df["Дата операции"] >= date_start) & (df["Дата операции"] <= date_end)
     ]
-    sorted_df = filtered_df.sort_values(by="Дата операции")
+    sorted_df = filtered_df.sort_values(by="Дата операции", ascending=True)
     return sorted_df
 
 
@@ -56,7 +57,9 @@ def get_correct_dates(date_time: str):
 
 def load_transactions(filepath=PATH_TO_EXCEL):
     """Загружает транзакции из Excel-файла и нормализует имена столбцов."""
-    df = pd.read_excel(filepath, parse_dates=["Дата операции"])
+    df = pd.read_excel(filepath)
+    df["Дата операции"] = pd.to_datetime(df["Дата операции"], dayfirst=True, errors="coerce")
+
     df.columns = [col.strip() for col in df.columns]
     return df
 
@@ -146,3 +149,12 @@ def get_currency_rates(currencies, base="RUB"):
         print(f"Ошибка при получении курса валют: {e}")
         logger.error(f"Ошибка при получении курса валют: {e}, возвращаем: 'rate': None")
         return [{"currency": c, "rate": None} for c in currencies]
+
+
+def get_card_with_spend(sorted_df: DataFrame) -> list[dict]:
+    """
+    Функция принимает DataFrame и возвращает список карт с расходаами
+    :param sorted_df:
+    :return:
+    """
+    pass

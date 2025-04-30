@@ -1,0 +1,48 @@
+2025-04-24 22:19:08,299 - views - INFO: запуск функции main_info
+2025-04-24 22:19:09,898 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-24 22:19:10,784 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 08:32:09,453 - views - INFO: запуск функции main_info
+2025-04-30 08:32:11,093 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 08:32:12,109 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 08:43:48,538 - views - INFO: запуск функции main_info
+2025-04-30 08:43:50,052 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 08:43:50,869 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 08:45:23,030 - views - INFO: запуск функции main_info
+2025-04-30 08:45:24,462 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 08:45:25,280 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 09:03:43,465 - views - INFO: запуск функции main_info
+2025-04-30 09:03:45,035 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 09:03:45,740 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 11:14:49,131 - views - INFO: запуск функции main_info
+2025-04-30 11:14:50,895 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:14:51,591 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 11:15:28,250 - views - INFO: запуск функции main_info
+2025-04-30 11:15:29,826 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:15:30,738 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:15:55,761 - views - INFO: запуск функции main_info
+2025-04-30 11:15:57,155 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:15:58,410 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:16:22,105 - views - INFO: запуск функции main_info
+2025-04-30 11:16:23,483 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:16:24,527 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:16:37,419 - views - INFO: запуск функции main_info
+2025-04-30 11:16:38,782 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:16:39,809 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:17:55,639 - views - INFO: запуск функции main_info
+2025-04-30 11:17:57,006 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': None}, {'currency': 'EUR', 'rate': None}]
+2025-04-30 11:17:57,930 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:37:28,716 - views - INFO: запуск функции main_info
+2025-04-30 11:37:30,005 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': 0.0123}, {'currency': 'EUR', 'rate': 0.0108}]
+2025-04-30 11:38:30,016 - views - INFO: получаем список акций и их цен {'AAPL': None, 'AMZN': None}
+2025-04-30 11:39:49,752 - views - INFO: запуск функции main_info
+2025-04-30 11:39:50,797 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': 0.0123}, {'currency': 'EUR', 'rate': 0.0108}]
+2025-04-30 11:39:51,920 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 11:50:28,590 - views - INFO: запуск функции main_info
+2025-04-30 11:50:30,007 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': 0.0123}, {'currency': 'EUR', 'rate': 0.0108}]
+2025-04-30 11:50:31,012 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 12:36:43,241 - views - INFO: запуск функции main_info
+2025-04-30 12:36:44,712 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': 0.0122}, {'currency': 'EUR', 'rate': 0.0108}]
+2025-04-30 12:36:45,735 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}
+2025-04-30 12:39:19,688 - views - INFO: запуск функции main_info
+2025-04-30 12:39:21,064 - views - INFO: Получаем список валют и их курса[{'currency': 'USD', 'rate': 0.0122}, {'currency': 'EUR', 'rate': 0.0108}]
+2025-04-30 12:39:22,013 - views - INFO: получаем список акций и их цен {'AAPL': 211.21, 'AMZN': 187.39}

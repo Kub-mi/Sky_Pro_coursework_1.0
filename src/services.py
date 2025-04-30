@@ -1,54 +1,59 @@
 import logging
 from collections import defaultdict
 from functools import reduce
+import pandas as pd
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("services")
 logger.setLevel(logging.INFO)
+file_handler = logging.FileHandler("../logs/services.log")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
 
-def analyze_profitable_categories(data, year, month, cashback_rate=0.05):
+
+def analyze_profitable_categories(data: pd.DataFrame, year: int, month: int, cashback_rate=0.05) -> dict:
     """
-    Анализирует выгодность категорий по кешбэку за указанный месяц и год.
-
-    :param data: DataFrame с транзакциями (должен содержать "Дата операции", "Сумма платежа", "Категория")
-    :param year: Год анализа
-    :param month: Месяц анализа
-    :param cashback_rate: Процент кешбэка для расчёта (по умолчанию 5%)
-    :return: Словарь (JSON) с категориями и потенциальным кешбэком
+    Анализирует, сколько кешбэка можно было бы заработать в каждой категории
+    за указанный месяц и год.
     """
-    logger.info(f"Анализ выгодных категорий кешбэка за {month:02d}.{year}")
+    logger.info(f"Анализ кешбэка по категориям за {month:02d}.{year} начат")
 
-    # 1. Фильтрация транзакций по дате
+    # Убедимся, что 'Дата операция' приведена к datetime
+    if not pd.api.types.is_datetime64_any_dtype(data["Дата операции"]):
+        logger.info("Преобразуем 'Дата операции' к datetime")
+        data["Дата операции"] = pd.to_datetime(data["Дата операции"], dayfirst=True, errors='coerce')
+
+    # Фильтрация по дате
     filtered_data = data[
         (data["Дата операции"].dt.year == year) &
         (data["Дата операции"].dt.month == month)
-    ]
+        ]
+    logger.info(f"Найдено {len(filtered_data)} строк после фильтрации по дате")
 
-    logger.info(f"Найдено {len(filtered_data)} транзакций за период")
-
-    # 2. Вычисление кешбэка по строкам: (категория, сумма_кешбэка)
+    # Функция для расчета кешбэка
     def extract_cashback(row):
         try:
-            amount = abs(float(str(row["Сумма платежа"]).replace(",", ".")))
+            amount = float(str(row["Сумма платежа"]).replace(",", "."))
             category = row["Категория"]
-            cashback = round(amount * cashback_rate, 2)
+            cashback = abs(round(amount * cashback_rate, 2))
             return (category, cashback)
         except Exception as e:
-            logger.warning(f"Ошибка при обработке строки {row}: {e}")
+            logger.warning(f"Ошибка в строке: {row} — {e}")
             return None
 
-    cashback_list = list(filter(None, map(extract_cashback, filtered_data.to_dict("records"))))
+    # Применим map + filter
+    cashback_entries = list(filter(None, map(extract_cashback, filtered_data.to_dict("records"))))
 
-    logger.info(f"Обработка {len(cashback_list)} строк с кешбэком")
+    logger.info(f"Обработка {len(cashback_entries)} строк с кешбэком")
 
-    # 3. Агрегация кешбэка по категориям
-    def accumulate(acc, item):
+    # Агрегируем по категориям
+    def aggregate(acc, item):
         category, cashback = item
         acc[category] += cashback
         return acc
 
-    category_cashback = reduce(accumulate, cashback_list, defaultdict(float))
+    aggregated = reduce(aggregate, cashback_entries, defaultdict(float))
 
-    logger.info("Завершён анализ кешбэка по категориям")
+    logger.info("Анализ категорий завершен")
 
-    # 4. Преобразуем в обычный словарь и возвращаем
-    return dict(category_cashback)
+    return dict(aggregated)

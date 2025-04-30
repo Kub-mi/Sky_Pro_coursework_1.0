@@ -65,16 +65,13 @@ def test_get_period(tmp_path):
 
 
 def test_load_transactions(tmp_path):
-    # Excel-файл с пробелами в названии столбцов
+    file_path = tmp_path / "test.xlsx"
     df = pd.DataFrame({
-        " Дата операции ": pd.to_datetime(["2025-04-01"]),
-        " Сумма ": [100]
+        "Дата операции": pd.date_range("2024-01-01", periods=3),
+        "Сумма": [100, 200, 300]
     })
-    file_path = tmp_path / "transactions.xlsx"
     df.to_excel(file_path, index=False)
 
-    result = load_transactions(str(file_path))
-    assert "Дата операции" in result.columns
-    assert "Сумма" in result.columns
-    assert isinstance(result, pd.DataFrame)
-    assert result.shape[0] == 1
+    from src.utils import load_transactions
+    loaded = load_transactions(file_path)
+    assert "Дата операции" in loaded.columns

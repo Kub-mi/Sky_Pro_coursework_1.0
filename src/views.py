@@ -22,6 +22,7 @@ load_dotenv()
 
 def main_info(date_time):
     logger.info("запуск функции main_info")
+
     start_date, end_date = get_correct_dates(date_time)
     sorted_df = get_period(PATH_TO_EXCEL, start_date, end_date)
 
