@@ -3,8 +3,15 @@ from collections import defaultdict
 
 from dotenv import load_dotenv
 
-from src.utils import PATH_TO_EXCEL, get_correct_dates, get_greeting, get_period, get_currency_rates, get_stock_price, \
-    load_user_settings
+from src.utils import (
+    PATH_TO_EXCEL,
+    get_correct_dates,
+    get_currency_rates,
+    get_greeting,
+    get_period,
+    get_stock_price,
+    load_user_settings,
+)
 
 logger = logging.getLogger("views")
 logger.setLevel(logging.INFO)
@@ -16,8 +23,6 @@ file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
 load_dotenv()
-
-
 
 
 def main_info(date_time):

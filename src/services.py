@@ -1,17 +1,22 @@
 import logging
 from collections import defaultdict
 from functools import reduce
+
 import pandas as pd
 
 logger = logging.getLogger("services")
 logger.setLevel(logging.INFO)
 file_handler = logging.FileHandler("../logs/services.log")
-file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s: %(message)s")
+file_formatter = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s: %(message)s"
+)
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
 
 
-def analyze_profitable_categories(data: pd.DataFrame, year: int, month: int, cashback_rate=0.05) -> dict:
+def analyze_profitable_categories(
+    data: pd.DataFrame, year: int, month: int, cashback_rate=0.05
+) -> dict:
     """
     Анализирует, сколько кешбэка можно было бы заработать в каждой категории
     за указанный месяц и год.
@@ -21,13 +26,15 @@ def analyze_profitable_categories(data: pd.DataFrame, year: int, month: int, cas
     # Убедимся, что 'Дата операция' приведена к datetime
     if not pd.api.types.is_datetime64_any_dtype(data["Дата операции"]):
         logger.info("Преобразуем 'Дата операции' к datetime")
-        data["Дата операции"] = pd.to_datetime(data["Дата операции"], dayfirst=True, errors='coerce')
+        data["Дата операции"] = pd.to_datetime(
+            data["Дата операции"], dayfirst=True, errors="coerce"
+        )
 
     # Фильтрация по дате
     filtered_data = data[
-        (data["Дата операции"].dt.year == year) &
-        (data["Дата операции"].dt.month == month)
-        ]
+        (data["Дата операции"].dt.year == year)
+        & (data["Дата операции"].dt.month == month)
+    ]
     logger.info(f"Найдено {len(filtered_data)} строк после фильтрации по дате")
 
     # Функция для расчета кешбэка
@@ -42,7 +49,9 @@ def analyze_profitable_categories(data: pd.DataFrame, year: int, month: int, cas
             return None
 
     # Применим map + filter
-    cashback_entries = list(filter(None, map(extract_cashback, filtered_data.to_dict("records"))))
+    cashback_entries = list(
+        filter(None, map(extract_cashback, filtered_data.to_dict("records")))
+    )
 
     logger.info(f"Обработка {len(cashback_entries)} строк с кешбэком")
 

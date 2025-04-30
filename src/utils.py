@@ -1,10 +1,10 @@
-import requests
 import json
 import logging
 import os
 from datetime import datetime
 
 import pandas as pd
+import requests
 from pandas import DataFrame
 
 PATH_TO_EXCEL = "../data/operations.xlsx"
@@ -17,6 +17,7 @@ file_formatter = logging.Formatter(
 )
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
+
 
 def get_greeting():
     """Возвращает приветствие в зависимости от часа входящего времени."""
@@ -58,7 +59,9 @@ def get_correct_dates(date_time: str):
 def load_transactions(filepath=PATH_TO_EXCEL):
     """Загружает транзакции из Excel-файла и нормализует имена столбцов."""
     df = pd.read_excel(filepath)
-    df["Дата операции"] = pd.to_datetime(df["Дата операции"], dayfirst=True, errors="coerce")
+    df["Дата операции"] = pd.to_datetime(
+        df["Дата операции"], dayfirst=True, errors="coerce"
+    )
 
     df.columns = [col.strip() for col in df.columns]
     return df
@@ -149,12 +152,3 @@ def get_currency_rates(currencies, base="RUB"):
         print(f"Ошибка при получении курса валют: {e}")
         logger.error(f"Ошибка при получении курса валют: {e}, возвращаем: 'rate': None")
         return [{"currency": c, "rate": None} for c in currencies]
-
-
-def get_card_with_spend(sorted_df: DataFrame) -> list[dict]:
-    """
-    Функция принимает DataFrame и возвращает список карт с расходаами
-    :param sorted_df:
-    :return:
-    """
-    pass

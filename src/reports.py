@@ -1,17 +1,20 @@
-import os
 import json
 import logging
+import os
 from datetime import datetime, timedelta
-from typing import Optional, Callable
-import pandas as pd
 from functools import wraps
+from typing import Callable, Optional
+
+import pandas as pd
 
 # --- Настройка логгера ---
 logger = logging.getLogger("reports")
 logger.setLevel(logging.INFO)
 os.makedirs("../logs", exist_ok=True)
 file_handler = logging.FileHandler("../logs/reports.log")
-file_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+file_handler.setFormatter(
+    logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+)
 logger.addHandler(file_handler)
 
 
@@ -31,7 +34,10 @@ def save_report(func: Optional[Callable] = None, *, file_name: Optional[str] = N
             result = inner_func(*args, **kwargs)
 
             os.makedirs("data", exist_ok=True)
-            file = file_name or f"{inner_func.__name__}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            file = (
+                file_name
+                or f"{inner_func.__name__}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            )
             path = os.path.join("data", file)
 
             try:
@@ -52,9 +58,7 @@ def save_report(func: Optional[Callable] = None, *, file_name: Optional[str] = N
 # --- Функция отчета ---
 @save_report  # можно использовать и: @save_report(file_name="supermarkets_q1.json")
 def spending_by_category(
-        transactions: pd.DataFrame,
-        category: str,
-        date: Optional[str] = None
+    transactions: pd.DataFrame, category: str, date: Optional[str] = None
 ) -> dict:
     """
     Возвращает сумму трат по заданной категории за последние 3 месяца от даты.
@@ -82,18 +86,14 @@ def spending_by_category(
 
     # фильтрация по дате и категории
     filtered = transactions[
-        (transactions["Категория"] == category) &
-        (transactions["Дата операции"] >= start_date) &
-        (transactions["Дата операции"] <= end_date)
-        ].copy()  # ← здесь .copy()
+        (transactions["Категория"] == category)
+        & (transactions["Дата операции"] >= start_date)
+        & (transactions["Дата операции"] <= end_date)
+    ].copy()  # ← здесь .copy()
 
     # безопасное добавление нового столбца
     filtered.loc[:, "Сумма числом"] = (
-        filtered["Сумма платежа"]
-        .astype(str)
-        .str.replace(",", ".")
-        .astype(float)
-        .abs()
+        filtered["Сумма платежа"].astype(str).str.replace(",", ".").astype(float).abs()
     )
 
     total = round(filtered["Сумма числом"].sum(), 2)
