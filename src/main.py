@@ -2,6 +2,8 @@ from src.views import main_info
 import json
 from src.services import analyze_profitable_categories
 from src.utils import load_transactions
+import pandas as pd
+from src.reports import spending_by_category
 
 if __name__ == "__main__":
     # date_request = input('Введите дату и время конца периода отчета в формате "2018-03-20 15:30:00": ')
@@ -28,5 +30,10 @@ if __name__ == "__main__":
     # for cat, cashback in result.items():
     #     print(f"{cat}: {cashback} руб.")
 
+    df = pd.read_excel("../data/operations.xlsx", sheet_name="Отчет по операциям")
+    df["Дата операции"] = pd.to_datetime(df["Дата операции"], format="%d.%m.%Y %H:%M:%S", errors="coerce")
+
+    result = spending_by_category(df, "Супермаркеты", "31.12.2021")
+    print(result)
 
 
