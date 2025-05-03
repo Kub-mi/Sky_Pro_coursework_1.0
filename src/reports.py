@@ -55,15 +55,14 @@ def save_report(func: Optional[Callable] = None, *, file_name: Optional[str] = N
     return decorator
 
 
-# --- Функция отчета ---
-@save_report  # можно использовать и: @save_report(file_name="supermarkets_q1.json")
+
+@save_report(file_name="spending_by_category_report.json")
 def spending_by_category(transactions: pd.DataFrame,
                          category: str,
                          date: Optional[str] = None
-                         ) -> pd.DataFrame:
+                         ) -> dict:
     """
     Возвращает сумму трат по заданной категории за последние 3 месяца от даты.
-
     :param transactions: DataFrame с транзакциями
     :param category: строка — название категории
     :param date: строка — дата в формате "дд.мм.гггг" (опционально)
@@ -85,21 +84,20 @@ def spending_by_category(transactions: pd.DataFrame,
             transactions["Дата операции"], format="%d.%m.%Y %H:%M:%S", errors="coerce"
         )
 
+    transactions["Сумма платежа"] = transactions["Сумма платежа"].astype(str).str.replace(",", ".").astype(float)
+
     # фильтрация по дате и категории
     filtered = transactions[
         (transactions["Категория"] == category)
         & (transactions["Дата операции"] >= start_date)
         & (transactions["Дата операции"] <= end_date)
         & (transactions["Сумма платежа"] < 0)
-
-    ].copy()  # ← здесь .copy()
+    ].copy()
 
     # безопасное добавление нового столбца
-    filtered.loc[:, "Сумма числом"] = (
-        filtered["Сумма платежа"].astype(str).str.replace(",", ".").astype(float).abs()
-    )
+    filtered["Сумма числом"] = filtered["Сумма платежа"].abs()
 
     total = round(filtered["Сумма числом"].sum(), 2)
     logger.info(f"Категория: {category}, сумма за 3 месяца: {total}")
 
-    return filtered
+    return {category: total}

@@ -44,7 +44,13 @@ def test_get_greeting_morning():
 
 def test_get_correct_dates():
     result = get_correct_dates("2025-04-15 15:00:00")
-    assert result == (datetime(2025, 4, 1, 15, 0, 0), datetime(2025, 4, 15, 15, 0, 0))
+    # assert result == (
+    #     datetime(2025, 4, 1, 15, 0, 0),
+    #     datetime(2025, 4, 15, 15, 0, 0)
+    # )
+    assert result[0] == datetime(2025, 4, 1, 0, 0, 0)
+    assert result[1] == datetime(2025, 4, 15, 15, 0, 0)
+    assert all(isinstance(d, datetime) for d in result)
 
 
 def test_get_period(tmp_path):

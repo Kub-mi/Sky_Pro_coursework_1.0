@@ -19,17 +19,31 @@
 ## Структура проекта
 
 SkyPro_coursework/ 
-├── data/ # Excel и сохраненные JSON-отчеты 
-│ 
+
+├── data/ # Excel и сохраненные JSON-отчеты
+
+│
+
 └── operations.xlsx 
+
 ├── logs/ # Логи (views.log, reports.log и др.) 
-├── src/ │ ├── views.py # Основной API (main_info) 
+
+├── src/ 
+
+│ ├── views.py # Основной API (main_info) 
+
 │ ├── utils.py # Утилиты (API-запросы, дата, Excel) 
+
 │ ├── reports.py # Отчеты и декораторы 
+
 │ ├── services.py # Сервисы (например, выгодные кешбэки) 
+
 │ └── main.py # Точка входа 
+
 ├── tests/ # Юнит-тесты Pytest 
+
 ├── .env # Переменные окружения 
+
 └── README.md # Документация проекта
 
 

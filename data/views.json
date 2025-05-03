@@ -3,8 +3,8 @@
     "cards": [
         {
             "last_digits": "7197",
-            "total_spent": 29262.61,
-            "cashback": 292.63
+            "total_spent": 29582.61,
+            "cashback": 295.83
         },
         {
             "last_digits": "4556",
@@ -57,15 +57,15 @@
     "currency_rates": [
         {
             "currency": "USD",
-            "rate": 0.0122
+            "rate": 82.6993
         },
         {
             "currency": "EUR",
-            "rate": 0.0108
+            "rate": 93.4579
         }
     ],
     "stock_prices": {
-        "AAPL": 211.21,
-        "AMZN": 187.39
+        "AAPL": 205.35,
+        "AMZN": 189.98
     }
 }

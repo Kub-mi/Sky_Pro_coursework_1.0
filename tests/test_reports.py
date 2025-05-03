@@ -1,8 +1,9 @@
-import os
 import json
 import pandas as pd
 import pytest
-from datetime import datetime
+from freezegun import freeze_time
+from pathlib import Path
+
 
 from src.reports import spending_by_category
 
@@ -23,35 +24,25 @@ def sample_df():
 
 
 def test_spending_by_category_with_date(tmp_path, sample_df, monkeypatch):
-    # Переключаем рабочую директорию во временную для создания файла
     monkeypatch.chdir(tmp_path)
 
-    # Выполняем функцию
-    result = spending_by_category(sample_df, "Кафе", "2025-04-10")
-
-    # Проверяем структуру результата
+    result = spending_by_category(sample_df, "Кафе", "10.04.2025")
     assert isinstance(result, dict)
     assert "Кафе" in result
 
-    # Проверяем корректность суммы
     expected_sum = round(500.00 + 250.50 + 749.99 + 300.00, 2)
     assert result["Кафе"] == expected_sum
 
-    # Проверяем, что файл с результатом создан
-    report_file = tmp_path / "spending_by_category_report.json"
+    report_file = Path("data") / "spending_by_category_report.json"
     assert report_file.exists()
 
-    # Проверяем содержимое файла
     with open(report_file, "r", encoding="utf-8") as f:
         data = json.load(f)
         assert data == result
 
 
-def test_spending_by_category_default_date(sample_df, monkeypatch):
-    # Устанавливаем текущую дату на 2025-04-10
-    monkeypatch.setattr("src.reports.datetime", datetime)
-    monkeypatch.setattr("src.reports.datetime.now", lambda: datetime(2025, 4, 10))
-
+@freeze_time("2025-04-10")
+def test_spending_by_category_default_date(sample_df):
     result = spending_by_category(sample_df, "Кафе")
 
     expected_sum = round(500.00 + 250.50 + 749.99 + 300.00, 2)

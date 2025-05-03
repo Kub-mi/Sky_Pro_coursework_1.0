@@ -52,8 +52,9 @@ def test_get_currency_rates(mock_get, mock_env):
 
     result = get_currency_rates(["USD", "EUR"])
     assert isinstance(result, list)
-    assert {"currency": "USD", "rate": 0.012} in result
-    assert {"currency": "EUR", "rate": 0.0105} in result
+    assert {"currency": "USD", "rate": 83.3333} in result
+    assert {"currency": "EUR", "rate": 95.2381} in result
+
 
 @patch("src.views.get_currency_rates")
 @patch("src.views.get_stock_price")
