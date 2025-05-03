@@ -39,7 +39,7 @@ SkyPro_coursework/
 
 1. Клонировать проект:
 ```bash
-git clone https://github.com/Kub-mi/Sky_Pro_coursework_1.git
+git clone https://github.com/Kub-mi/Sky_Pro_coursework_1.0.git
 ```
 2. Установить зависимости:
 ```bash

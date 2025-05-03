@@ -1,7 +1,7 @@
 import json
 import logging
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 from functools import wraps
 from typing import Callable, Optional
 
@@ -57,9 +57,10 @@ def save_report(func: Optional[Callable] = None, *, file_name: Optional[str] = N
 
 # --- Функция отчета ---
 @save_report  # можно использовать и: @save_report(file_name="supermarkets_q1.json")
-def spending_by_category(
-    transactions: pd.DataFrame, category: str, date: Optional[str] = None
-) -> dict:
+def spending_by_category(transactions: pd.DataFrame,
+                         category: str,
+                         date: Optional[str] = None
+                         ) -> pd.DataFrame:
     """
     Возвращает сумму трат по заданной категории за последние 3 месяца от даты.
 
@@ -76,7 +77,7 @@ def spending_by_category(
     else:
         end_date = datetime.now()
 
-    start_date = end_date - timedelta(days=90)
+    start_date = end_date - pd.DateOffset(months=3)
 
     # Преобразование колонки даты
     if not pd.api.types.is_datetime64_any_dtype(transactions["Дата операции"]):
@@ -89,6 +90,8 @@ def spending_by_category(
         (transactions["Категория"] == category)
         & (transactions["Дата операции"] >= start_date)
         & (transactions["Дата операции"] <= end_date)
+        & (transactions["Сумма платежа"] < 0)
+
     ].copy()  # ← здесь .copy()
 
     # безопасное добавление нового столбца
@@ -99,4 +102,4 @@ def spending_by_category(
     total = round(filtered["Сумма числом"].sum(), 2)
     logger.info(f"Категория: {category}, сумма за 3 месяца: {total}")
 
-    return {category: total}
+    return filtered

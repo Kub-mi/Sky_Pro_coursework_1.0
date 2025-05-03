@@ -51,7 +51,7 @@ def get_correct_dates(date_time: str):
     return: '01.05.2025 15:00:00', '20.05.2025 15:00:00'
     """
     end_date = datetime.strptime(date_time, "%Y-%m-%d %H:%M:%S")
-    start_date = end_date.replace(day=1)
+    start_date = end_date.replace(day=1, hour=0, minute=0, second=0, microsecond=0)
 
     return start_date, end_date
 
@@ -143,7 +143,7 @@ def get_currency_rates(currencies, base="RUB"):
             logger.info(f"Обрабатываем {key}: {rate}")
 
             result.append(
-                {"currency": currency, "rate": round(rate, 4) if rate else None}
+                {"currency": currency, "rate": round(1 / rate, 4) if rate else None}
             )
 
         return result
