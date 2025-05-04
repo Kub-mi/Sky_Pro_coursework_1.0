@@ -1,0 +1,219 @@
+2025-04-24 22:19:09,411 - utils - INFO: запуск функции get_currency_rates
+2025-04-24 22:19:09,411 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-24 22:19:09,411 - utils - INFO: Создаем запрос через API
+2025-04-24 22:19:09,412 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-24 22:19:09,897 - utils - ERROR: Ошибка от API: {'code': 102, 'info': 'Permission denied - User not active.'}
+2025-04-24 22:19:09,898 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 102, 'info': 'Permission denied - User not active.'}, возвращаем: 'rate': None
+2025-04-24 22:19:09,898 - utils - INFO: запуск функции get_stock_price
+2025-04-24 22:19:10,415 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AAPL&limit=1
+2025-04-24 22:19:10,783 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AMZN&limit=1
+2025-04-30 08:32:10,455 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 08:32:10,456 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 08:32:10,456 - utils - INFO: Создаем запрос через API
+2025-04-30 08:32:10,456 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 08:32:11,092 - utils - ERROR: Ошибка от API: {'code': 102, 'info': 'Permission denied - User not active.'}
+2025-04-30 08:32:11,092 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 102, 'info': 'Permission denied - User not active.'}, возвращаем: 'rate': None
+2025-04-30 08:32:11,093 - utils - INFO: запуск функции get_stock_price
+2025-04-30 08:32:11,703 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AAPL&limit=1
+2025-04-30 08:32:12,109 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AMZN&limit=1
+2025-04-30 08:43:49,547 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 08:43:49,547 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 08:43:49,547 - utils - INFO: Создаем запрос через API
+2025-04-30 08:43:49,547 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 08:43:50,051 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 08:43:50,052 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 08:43:50,052 - utils - INFO: запуск функции get_stock_price
+2025-04-30 08:43:50,458 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AAPL&limit=1
+2025-04-30 08:43:50,868 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AMZN&limit=1
+2025-04-30 08:45:24,044 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 08:45:24,044 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 08:45:24,044 - utils - INFO: Создаем запрос через API
+2025-04-30 08:45:24,044 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 08:45:24,462 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 08:45:24,462 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 08:45:24,462 - utils - INFO: запуск функции get_stock_price
+2025-04-30 08:45:24,870 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AAPL&limit=1
+2025-04-30 08:45:25,279 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=7b8ffc2fa429c2e58c0f1ba099d55edf&symbols=AMZN&limit=1
+2025-04-30 09:03:44,506 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 09:03:44,506 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 09:03:44,506 - utils - INFO: Создаем запрос через API
+2025-04-30 09:03:44,506 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 09:03:45,034 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 09:03:45,034 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 09:03:45,035 - utils - INFO: запуск функции get_stock_price
+2025-04-30 09:03:45,432 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=yk3NNGa9lCKtbl0rpmgMoHv3I47mnP4s&symbols=AAPL&limit=1
+2025-04-30 09:03:45,739 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=yk3NNGa9lCKtbl0rpmgMoHv3I47mnP4s&symbols=AMZN&limit=1
+2025-04-30 11:14:50,206 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:14:50,206 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:14:50,206 - utils - INFO: Создаем запрос через API
+2025-04-30 11:14:50,206 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:14:50,894 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 11:14:50,895 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 11:14:50,895 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:14:51,285 - utils - ERROR: Ошибка при получении цены для AAPL: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=yk3NNGa9lCKtbl0rpmgMoHv3I47mnP4s&symbols=AAPL&limit=1
+2025-04-30 11:14:51,591 - utils - ERROR: Ошибка при получении цены для AMZN: 401 Client Error: Unauthorized for url: http://api.marketstack.com/v2/eod?access_key=yk3NNGa9lCKtbl0rpmgMoHv3I47mnP4s&symbols=AMZN&limit=1
+2025-04-30 11:15:29,256 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:15:29,257 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:15:29,257 - utils - INFO: Создаем запрос через API
+2025-04-30 11:15:29,257 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:15:29,825 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 11:15:29,825 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 11:15:29,826 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:15:30,304 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:15:30,305 - utils - INFO: получаем data
+2025-04-30 11:15:30,305 - utils - INFO: забираем close, 211.21
+2025-04-30 11:15:30,737 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:15:30,738 - utils - INFO: получаем data
+2025-04-30 11:15:30,738 - utils - INFO: забираем close, 187.39
+2025-04-30 11:15:56,753 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:15:56,754 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:15:56,754 - utils - INFO: Создаем запрос через API
+2025-04-30 11:15:56,754 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:15:57,154 - utils - ERROR: Ошибка от API: {'code': 'not_found_error', 'message': 'Route not found'}
+2025-04-30 11:15:57,155 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 'not_found_error', 'message': 'Route not found'}, возвращаем: 'rate': None
+2025-04-30 11:15:57,156 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:15:57,976 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:15:57,976 - utils - INFO: получаем data
+2025-04-30 11:15:57,977 - utils - INFO: забираем close, 211.21
+2025-04-30 11:15:58,409 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:15:58,410 - utils - INFO: получаем data
+2025-04-30 11:15:58,410 - utils - INFO: забираем close, 187.39
+2025-04-30 11:16:23,103 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:16:23,103 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:16:23,103 - utils - INFO: Создаем запрос через API
+2025-04-30 11:16:23,103 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:16:23,483 - utils - ERROR: Ошибка от API: {'code': 102, 'info': 'Permission denied - User not active.'}
+2025-04-30 11:16:23,483 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 102, 'info': 'Permission denied - User not active.'}, возвращаем: 'rate': None
+2025-04-30 11:16:23,484 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:16:24,057 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:16:24,057 - utils - INFO: получаем data
+2025-04-30 11:16:24,057 - utils - INFO: забираем close, 211.21
+2025-04-30 11:16:24,526 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:16:24,526 - utils - INFO: получаем data
+2025-04-30 11:16:24,526 - utils - INFO: забираем close, 187.39
+2025-04-30 11:16:38,423 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:16:38,423 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:16:38,423 - utils - INFO: Создаем запрос через API
+2025-04-30 11:16:38,423 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:16:38,781 - utils - ERROR: Ошибка от API: {'code': 102, 'type': 'inactive_user', 'info': 'Permission denied - User not active.'}
+2025-04-30 11:16:38,781 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 102, 'type': 'inactive_user', 'info': 'Permission denied - User not active.'}, возвращаем: 'rate': None
+2025-04-30 11:16:38,782 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:16:39,321 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:16:39,321 - utils - INFO: получаем data
+2025-04-30 11:16:39,321 - utils - INFO: забираем close, 211.21
+2025-04-30 11:16:39,808 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:16:39,808 - utils - INFO: получаем data
+2025-04-30 11:16:39,808 - utils - INFO: забираем close, 187.39
+2025-04-30 11:17:56,647 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:17:56,648 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:17:56,648 - utils - INFO: Создаем запрос через API
+2025-04-30 11:17:56,648 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:17:57,005 - utils - ERROR: Ошибка от API: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}
+2025-04-30 11:17:57,006 - utils - ERROR: Ошибка при получении курса валют: CurrencyLayer API Error: {'code': 101, 'type': 'invalid_access_key', 'info': 'You have not supplied a valid API Access Key. [Technical Support: support@apilayer.com]'}, возвращаем: 'rate': None
+2025-04-30 11:17:57,006 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:17:57,580 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:17:57,581 - utils - INFO: получаем data
+2025-04-30 11:17:57,581 - utils - INFO: забираем close, 211.21
+2025-04-30 11:17:57,929 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:17:57,930 - utils - INFO: получаем data
+2025-04-30 11:17:57,930 - utils - INFO: забираем close, 187.39
+2025-04-30 11:37:29,364 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:37:29,364 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:37:29,364 - utils - INFO: Создаем запрос через API
+2025-04-30 11:37:29,364 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:37:30,004 - utils - INFO: Обрабатываем RUBUSD: 0.01227
+2025-04-30 11:37:30,004 - utils - INFO: Обрабатываем RUBEUR: 0.010791
+2025-04-30 11:37:30,005 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:38:00,007 - utils - ERROR: Ошибка при получении цены для AAPL: HTTPConnectionPool(host='api.marketstack.com', port=80): Max retries exceeded with url: /v2/eod?access_key=d3edd9e1783801b75880361bce4ee75e&symbols=AAPL&limit=1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x1048ebb50>: Failed to resolve 'api.marketstack.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-04-30 11:38:30,015 - utils - ERROR: Ошибка при получении цены для AMZN: HTTPConnectionPool(host='api.marketstack.com', port=80): Max retries exceeded with url: /v2/eod?access_key=d3edd9e1783801b75880361bce4ee75e&symbols=AMZN&limit=1 (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x104aa6070>: Failed to resolve 'api.marketstack.com' ([Errno 8] nodename nor servname provided, or not known)"))
+2025-04-30 11:39:50,382 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:39:50,382 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:39:50,382 - utils - INFO: Создаем запрос через API
+2025-04-30 11:39:50,382 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:39:50,797 - utils - INFO: Обрабатываем RUBUSD: 0.012269
+2025-04-30 11:39:50,797 - utils - INFO: Обрабатываем RUBEUR: 0.010792
+2025-04-30 11:39:50,798 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:39:51,517 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:39:51,518 - utils - INFO: получаем data
+2025-04-30 11:39:51,518 - utils - INFO: забираем close, 211.21
+2025-04-30 11:39:51,919 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:39:51,920 - utils - INFO: получаем data
+2025-04-30 11:39:51,920 - utils - INFO: забираем close, 187.39
+2025-04-30 11:50:29,656 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 11:50:29,656 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 11:50:29,656 - utils - INFO: Создаем запрос через API
+2025-04-30 11:50:29,656 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 11:50:30,006 - utils - INFO: Обрабатываем RUBUSD: 0.012263
+2025-04-30 11:50:30,007 - utils - INFO: Обрабатываем RUBEUR: 0.010787
+2025-04-30 11:50:30,007 - utils - INFO: запуск функции get_stock_price
+2025-04-30 11:50:30,518 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:50:30,518 - utils - INFO: получаем data
+2025-04-30 11:50:30,519 - utils - INFO: забираем close, 211.21
+2025-04-30 11:50:31,011 - utils - INFO: получение данных по апи ключу
+2025-04-30 11:50:31,012 - utils - INFO: получаем data
+2025-04-30 11:50:31,012 - utils - INFO: забираем close, 187.39
+2025-04-30 12:36:44,292 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 12:36:44,292 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 12:36:44,292 - utils - INFO: Создаем запрос через API
+2025-04-30 12:36:44,292 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 12:36:44,711 - utils - INFO: Обрабатываем RUBUSD: 0.01224
+2025-04-30 12:36:44,712 - utils - INFO: Обрабатываем RUBEUR: 0.010758
+2025-04-30 12:36:44,712 - utils - INFO: запуск функции get_stock_price
+2025-04-30 12:36:45,222 - utils - INFO: получение данных по апи ключу
+2025-04-30 12:36:45,223 - utils - INFO: получаем data
+2025-04-30 12:36:45,223 - utils - INFO: забираем close, 211.21
+2025-04-30 12:36:45,734 - utils - INFO: получение данных по апи ключу
+2025-04-30 12:36:45,735 - utils - INFO: получаем data
+2025-04-30 12:36:45,735 - utils - INFO: забираем close, 187.39
+2025-04-30 12:39:20,694 - utils - INFO: запуск функции get_currency_rates
+2025-04-30 12:39:20,695 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-04-30 12:39:20,695 - utils - INFO: Создаем запрос через API
+2025-04-30 12:39:20,695 - utils - INFO: Отправляем запрос к API currencylayer
+2025-04-30 12:39:21,064 - utils - INFO: Обрабатываем RUBUSD: 0.012247
+2025-04-30 12:39:21,064 - utils - INFO: Обрабатываем RUBEUR: 0.010765
+2025-04-30 12:39:21,064 - utils - INFO: запуск функции get_stock_price
+2025-04-30 12:39:21,557 - utils - INFO: получение данных по апи ключу
+2025-04-30 12:39:21,557 - utils - INFO: получаем data
+2025-04-30 12:39:21,557 - utils - INFO: забираем close, 211.21
+2025-04-30 12:39:22,012 - utils - INFO: получение данных по апи ключу
+2025-04-30 12:39:22,012 - utils - INFO: получаем data
+2025-04-30 12:39:22,013 - utils - INFO: забираем close, 187.39
+2025-05-03 14:08:57,002 - utils - INFO: запуск функции get_currency_rates
+2025-05-03 14:08:57,003 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-05-03 14:08:57,003 - utils - INFO: Создаем запрос через API
+2025-05-03 14:08:57,003 - utils - INFO: Отправляем запрос к API currencylayer
+2025-05-03 14:08:57,655 - utils - INFO: Обрабатываем RUBUSD: 0.012092
+2025-05-03 14:08:57,656 - utils - INFO: Обрабатываем RUBEUR: 0.0107
+2025-05-03 14:08:57,656 - utils - INFO: запуск функции get_stock_price
+2025-05-03 14:08:58,710 - utils - INFO: получение данных по апи ключу
+2025-05-03 14:08:58,710 - utils - INFO: получаем data
+2025-05-03 14:08:58,710 - utils - INFO: забираем close, 205.35
+2025-05-03 14:08:59,545 - utils - INFO: получение данных по апи ключу
+2025-05-03 14:08:59,546 - utils - INFO: получаем data
+2025-05-03 14:08:59,546 - utils - INFO: забираем close, 189.98
+2025-05-03 16:23:32,401 - utils - INFO: запуск функции get_currency_rates
+2025-05-03 16:23:32,401 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-05-03 16:23:32,401 - utils - INFO: Создаем запрос через API
+2025-05-03 16:23:32,401 - utils - INFO: Отправляем запрос к API currencylayer
+2025-05-03 16:23:32,817 - utils - INFO: Обрабатываем RUBUSD: 0.012092
+2025-05-03 16:23:32,817 - utils - INFO: Обрабатываем RUBEUR: 0.0107
+2025-05-03 16:23:32,817 - utils - INFO: запуск функции get_stock_price
+2025-05-03 16:23:33,392 - utils - INFO: получение данных по апи ключу
+2025-05-03 16:23:33,393 - utils - INFO: получаем data
+2025-05-03 16:23:33,393 - utils - INFO: забираем close, 205.35
+2025-05-03 16:23:34,613 - utils - INFO: получение данных по апи ключу
+2025-05-03 16:23:34,613 - utils - INFO: получаем data
+2025-05-03 16:23:34,613 - utils - INFO: забираем close, 189.98
+2025-05-03 16:27:21,569 - utils - INFO: запуск функции get_currency_rates
+2025-05-03 16:27:21,569 - utils - INFO: Разделяем валюты запятой для запроса сразу двух валют
+2025-05-03 16:27:21,569 - utils - INFO: Создаем запрос через API
+2025-05-03 16:27:21,569 - utils - INFO: Отправляем запрос к API currencylayer
+2025-05-03 16:27:21,955 - utils - INFO: Обрабатываем RUBUSD: 0.012092
+2025-05-03 16:27:21,955 - utils - INFO: Обрабатываем RUBEUR: 0.0107
+2025-05-03 16:27:21,955 - utils - INFO: запуск функции get_stock_price
+2025-05-03 16:27:22,524 - utils - INFO: получение данных по апи ключу
+2025-05-03 16:27:22,524 - utils - INFO: получаем data
+2025-05-03 16:27:22,525 - utils - INFO: забираем close, 205.35
+2025-05-03 16:27:23,029 - utils - INFO: получение данных по апи ключу
+2025-05-03 16:27:23,030 - utils - INFO: получаем data
+2025-05-03 16:27:23,030 - utils - INFO: забираем close, 189.98
