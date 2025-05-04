@@ -8,7 +8,20 @@ packages = [{include = "sky_pro_coursework_1"}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+flask = "^3.1.0"
+pandas = "^2.2.3"
+requests = "^2.32.3"
+openpyxl = "^3.1.5"
+dotenv = "^0.9.9"
+pytest = "^8.3.5"
+freezegun = "^1.5.1"
 
+
+[tool.poetry.group.lint.dependencies]
+flake8 = "^7.2.0"
+mypy = "^1.15.0"
+black = "^25.1.0"
+isort = "^6.0.1"
 
 [build-system]
 requires = ["poetry-core"]
